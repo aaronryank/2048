@@ -1,0 +1,7 @@
+CMakeLists.txt
+*.o
+*.exe
+*.stackdump
+*.out
+cmake-build-debug/*
+.idea/*
