@@ -4,7 +4,6 @@
 #include "2048.h"
 
 int score = 0, recent_score = 0;
-int game_continues = 1;
 
 #pragma clang diagnostic ignored "-Wmissing-noreturn"
 
@@ -19,6 +18,9 @@ int main() {
         display_board();
         refresh();
 
+        if (game_over())
+            endgame(STUCK);
+
         recent_score = 0;
 
         int c = getch();
@@ -30,9 +32,6 @@ int main() {
         }
 
         score += recent_score;
-
-        if (game_over())
-            endgame(STUCK);
 
     goto gamestart;
 }
@@ -64,7 +63,7 @@ void endgame(int cause) {
 
     shutdown_interface();
 
-    printf("You %s!\n", deathcauses[-cause - 1]);
+    printf("You %s!\n", deathcauses[cause]);
     printf("Highest tile: %d\n", highest_tile());
     printf("Score: %d\n", score);
 

@@ -7,6 +7,10 @@ void signalexit() {
     endgame(BORK);
 }
 
+void ctrlcexit() {
+    endgame(QUIT);
+}
+
 void init_interface() {
     /* curses stuff, borrowed from the curses manpage */
     initscr();
@@ -18,7 +22,7 @@ void init_interface() {
 
     /* signal stuff, borrowed from Omega-RPG */
 #ifdef SIGINT
-    signal(SIGINT, (void*) signalexit);
+    signal(SIGINT, (void*) ctrlcexit);
 #endif
 #ifdef SIGHUP
     signal(SIGHUP,(void*) signalexit);

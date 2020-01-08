@@ -1,5 +1,7 @@
 #include "2048.h"
 
+// TODO: turn these crappy multi-functions into some really cool algorithm that works for all of them
+
 int movetilesdown() {
     int row, column, moved, rmoved = 0;
     do {

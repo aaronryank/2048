@@ -5,9 +5,7 @@
 #include <curses.h>
 
 /* game defs */
-#define QUIT -1
-#define STUCK -2
-#define BORK -3
+enum { QUIT, STUCK, BORK };
 
 /* functions */
 /* interface.c */
